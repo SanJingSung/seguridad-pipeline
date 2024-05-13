@@ -11,32 +11,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    - name: Install Angular CLI
-      run: npm install -g @angular/cli
-
-    - name: Build Angular Project
-      run: |
-        cd Frontend
-        npm install
-        ng build
-
-    - name: Set up .NET Core
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: '6.0'
-
-    - name: Build .NET Project
-      run: |
-        cd Backend
-        dotnet build
-
     - name: Echo a Secret
       run: echo "The secret is ${{ secrets.SAMPLE_SECRET }}"
